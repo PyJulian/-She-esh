@@ -1,6 +1,9 @@
 # (She)esh / NeCanna Site
 Mijn mooie geweldige portofolio site :333
 
+### 3DS Compat
+This works on the 3ds, cool right :>>
+
 ### Note
 Heres a lil list of files that are NOT commited to this repo:
 <ul>
