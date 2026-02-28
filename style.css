@@ -1,0 +1,49 @@
+/* Configs and such */
+body {
+	font-family: monospace;
+	user-select: none;
+} img {pointer-events: none;}
+.proj {width: 40vw;}
+
+/* This is something T_T */
+p {
+	margin-block-start: 0;
+} h1, h2, h3, h4, h5, h6 {margin-block-end: 0;}
+
+/* Cooler Hypelink*/
+a {
+	text-decoration: none;
+	font-weight: bold;
+	color: blue;
+	cursor: pointer;
+}
+a:hover {color: purple;}
+a:active {color: red;}
+
+/* List Maestro */
+ul, ol {list-style-type: none;}
+ul {
+	padding-left: 30px;
+	margin-bottom: 10px;
+} ul li::before {content: "> ";}
+ol {padding-inline-start: 20px;}
+
+/* Project Stuff */
+.icon {
+	display: -webkit-box;
+	height: 22px;
+
+	font-weight: bold;
+} .icon img {
+	height: 20px;
+	margin-right: 10px;
+} .icon span {
+	position: relative;
+	bottom: 5.6px;
+}
+
+/* Darkmode */
+#dark {
+	background-color: #111216;
+	color: white;
+}
