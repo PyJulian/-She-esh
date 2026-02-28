@@ -1,12 +1,3 @@
-<!--
-	TODO:
-
-	OPENSOURCE THINGS
-	SOURCE BUTTON WORKS
-	SOURCE BUTTON JSON THING
-	POOKIE RIN IMAGE ICON :3
---> <!-- You did NOT see this TODO comment -->
-
 <?php
 	$ds = str_contains($_SERVER['HTTP_USER_AGENT'], 'Nintendo 3DS'); // Check if user is on the 3ds
 ?>
@@ -17,6 +8,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" href="db/icons/(She)esh, NeCanna Site.png">
 	<title>(She)esh</title>
 </head>
 <body>
@@ -78,15 +70,15 @@
 				<div class="icon">
 					<img src="db/icons/<?= $name ?>.png" alt="" onerror="this.onerror = null; this.src = 'db/icons/placeholder.png'">
 					<span>
-						<?= $name ?>
+						<?= $name ?? '' ?>
 					</span>
 				</div>
 				<ul>
 					<li>
-						<i>Written in:</i> <?= $proj->lang ?>
+						<i>Written in:</i> <?= $proj->lang ?? '' ?>
 					</li>
 					<li>
-						<?= $proj->shortdesc ?>
+						<?= $proj->shortdesc ?? '' ?>
 					</li>
 					<li>
 						<i>Status:</i>
@@ -94,7 +86,7 @@
 					</li>
 					<li>
 						<!-- <a href="">Source</a> | -->
-						<a href="project.php?proj=<?= $name ?>">View Project</a>
+						<a href="project.php?proj=<?= $name ?? '' ?>">View Project</a>
 					</li>
 				</ul>
 			</li>
