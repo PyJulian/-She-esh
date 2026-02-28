@@ -8,6 +8,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" href="db/icons/(She)esh, NeCanna Site.png">
 	<title>(She)esh - <?= $_GET['proj'] ?></title>
 </head>
 <body>
