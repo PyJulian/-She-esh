@@ -1,21 +1,23 @@
 <?php
-	$proj = json_decode(file_get_contents('./db/projects.json'), true)[$_GET['proj']];
+	$proj = json_decode(file_get_contents('./db/projects.json'), true)[$_GET['proj']]; // Get Project Info
+
+	// Get the placeholder icon or something, to prevent those ugly error messages in the console
+	$icon = 'db/icons/' . $_GET['proj'] . '.png';
+	if (!file_exists($icon)) {$icon = 'db/icons/placeholder.png';}
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="icon" href="db/icons/(She)esh, NeCanna Site.png">
+	<?php include_once 'db/meta.php' ?>
+	<link rel="icon" href="<?= $icon ?>">
 	<title>(She)esh - <?= $_GET['proj'] ?></title>
 </head>
 <body>
 	<h2 style="display: -webkit-box;">
 		Sophie's Site -
 		<div class="icon" style="margin-left: 10px;">
-			<img src="db/icons/<?= $_GET['proj'] ?>.png" alt="Icon" style="margin-right: 0;" onerror="this.onerror = null; this.src = 'db/icons/placeholder.png'">
+			<img src="<?= $icon ?>" alt="Icon" style="margin-right: 0;">
 			<span style="bottom: 3px;">
 				<?= htmlspecialchars($_GET['proj']) ?>
 			</span>
@@ -32,6 +34,17 @@
 			<i>Written in:</i> <b><?= $proj['lang'] ?></b><br/>
 			<i>Status:</i> <b><?= $proj['done'] ? 'Finished' : 'In-Progress' ?></b>
 		</p>
+
+		<?php if (count($proj['source']) > 0 ) { ?>
+			<h3>Source:</h3>
+			<?php foreach($proj['source'] as $prov => $link) { ?>
+				<ul>
+					<li>
+						<?= $prov ?>: <a href="<?= $link ?>" target="_blank"><?= $link ?></a>
+					</li>
+				</ul>
+			<?php } ?>
+		<?php } ?>
 
 		<h3>Description</h3>
 		<p>
