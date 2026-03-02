@@ -3,16 +3,14 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<?php include_once 'db/meta.php' ?>
 	<link rel="icon" href="db/icons/(She)esh, NeCanna Site.png">
-	<title>(She)esh</title>
+	<title>(She)esh / NeCanna Site</title>
 </head>
 <body>
-	<h2>NeCanna Project Site</h2>
+	<h2>(She)esh / NeCanna Site</h2>
 	<p>
 		I'm a backend developer that focuses on PHP & Learning ASM (x86).<br>
 		Currently I'm working on Homebrew Chips and soldering stuff.
@@ -85,7 +83,9 @@
 						<?= $proj->done ? '<b>Finished</b>' : 'In-Progress' ?>
 					</li>
 					<li>
-						<!-- <a href="">Source</a> | -->
+						<?php foreach($proj->source as $prov => $link) { ?>
+							<a href="<?= $link ?>" target="_blank">Source (<?= $prov ?>)</a> |
+						<?php } ?>
 						<a href="project.php?proj=<?= $name ?? '' ?>">View Project</a>
 					</li>
 				</ul>
