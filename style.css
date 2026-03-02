@@ -2,7 +2,9 @@
 body {
 	font-family: monospace;
 	user-select: none;
-} img {pointer-events: none;}
+} body > h2:first-child {margin-block-start: 0;}
+
+img {pointer-events: none;}
 .proj {width: 40vw;}
 
 /* This is something T_T */
