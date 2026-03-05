@@ -40,7 +40,7 @@
 			<?php foreach($proj['source'] as $prov => $link) { ?>
 				<ul>
 					<li>
-						<?= $prov ?>: <a href="<?= $link ?>" target="_blank"><?= $link ?></a>
+						<?= $prov ?>: <a href="<?= $link ?>" target="_blank"> <?= str_replace('db/opensource/', '', $link) ?></a>
 					</li>
 				</ul>
 			<?php } ?>
@@ -59,7 +59,7 @@
 		<p>
 			<a href="index.php">Return to the Homepage</a>
 			or
-			<a href="CV.pdf">Check out my CV and hire me :3</a>
+			<a href="CV/CV en.pdf">Check out my CV and hire me :3</a>
 		</p>
 
 	<?php } else { ?>
@@ -70,7 +70,7 @@
 		<p>
 			<a href="index.php">Return to the Homepage</a>
 			or
-			<a href="CV.pdf">Forget it and check out my CV Instead :)</a>
+			<a href="CV/CV en.pdf">Forget it and check out my CV Instead :)</a>
 		</p>
 	<?php } ?>
 
