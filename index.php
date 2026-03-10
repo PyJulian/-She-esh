@@ -1,5 +1,9 @@
 <?php
 	$ds = str_contains($_SERVER['HTTP_USER_AGENT'], 'Nintendo 3DS'); // Check if user is on the 3ds
+
+	if (file_exists('./db/projects.json')) {
+		$projects = json_decode(file_get_contents('./db/projects.json'));
+	} // Check if file exists and then reads it
 ?>
 
 <!DOCTYPE html>
@@ -63,33 +67,37 @@
 
 	<h3>My Projects</h3>
 	<ol>
-		<?php foreach (json_decode(file_get_contents('./db/projects.json')) as $name => $proj) { ?>
-			<li>
-				<div class="icon">
-					<img src="db/icons/<?= $name ?>.png" alt="" onerror="this.onerror = null; this.src = 'db/icons/placeholder.png'">
-					<span>
-						<?= $name ?? '' ?>
-					</span>
-				</div>
-				<ul>
-					<li>
-						<i>Written in:</i> <?= $proj->lang ?? '' ?>
-					</li>
-					<li>
-						<?= $proj->shortdesc ?? '' ?>
-					</li>
-					<li>
-						<i>Status:</i>
-						<?= $proj->done ? '<b>Finished</b>' : 'In-Progress' ?>
-					</li>
-					<li>
-						<?php foreach($proj->source as $prov => $link) { ?>
-							<a href="<?= $link ?>" target="_blank">Source (<?= $prov ?>)</a> |
-						<?php } ?>
-						<a href="project.php?proj=<?= $name ?? '' ?>">View Project</a>
-					</li>
-				</ul>
-			</li>
+		<?php if (isset($projects)) {
+			foreach ($projects as $name => $proj) { ?>
+				<li>
+					<div class="icon">
+						<img src="db/icons/<?= $name ?>.png" alt="" onerror="this.onerror = null; this.src = 'db/icons/placeholder.png'">
+						<span>
+							<?= $name ?? '' ?>
+						</span>
+					</div>
+					<ul>
+						<li>
+							<i>Written in:</i> <?= $proj->lang ?? '' ?>
+						</li>
+						<li>
+							<?= $proj->shortdesc ?? '' ?>
+						</li>
+						<li>
+							<i>Status:</i>
+							<?= $proj->done ? '<b>Finished</b>' : 'In-Progress' ?>
+						</li>
+						<li>
+							<?php foreach($proj->source as $prov => $link) { ?>
+								<a href="<?= $link ?>" target="_blank">Source (<?= $prov ?>)</a> |
+							<?php } ?>
+							<a href="project.php?proj=<?= $name ?? '' ?>">View Project</a>
+						</li>
+					</ul>
+				</li>
+			<?php } ?>
+		<?php } else { ?>
+			<i>Projects file failed to load :(</i>
 		<?php } ?>
 	</ol>
 
