@@ -5,8 +5,14 @@ My little portofolio site
 This works on the 3ds, cool right :>>
 
 ### Note
-Heres a list of files that aren't commited to this repo:
+Heres a list of files and directories that aren't commited to this repo:
 <ul>
+  <li>
+    <code>/db/icons/*</code>
+  </li>
+  <li>
+    <code>/db/img/*</code>
+  </li>
   <li>
     <code>/db/projects.json</code>
   </li>
