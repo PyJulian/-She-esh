@@ -103,9 +103,9 @@
 
 	<h3>Dark Mode</h3>
 	<p>
-		<?= $ds ? 'Doesn\'t work on the 3DS somehow mb :(' : '<a onclick="dark()">Click to Toggle Darkmode for All you Online Feins out There</a>' ?>
+		<a onclick="dark()">Click to Toggle Darkmode for All you Online Feins out There</a>
 	</p>
 
-	<script src="sophie.js" defer></script>
+	<script src="sophie.js"></script>
 </body>
 </html>
