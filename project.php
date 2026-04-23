@@ -74,6 +74,6 @@
 		</p>
 	<?php } ?>
 
-	<script src="sophie.js" defer></script>
+	<script src="sophie.js"></script>
 </body>
 </html>
